@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course</title>
+    <style>
+        table, th, td {
+            text-align: center;
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body style="background-color: rgb(137, 190, 192);">
+    <h1>Kolej Profesional MARA Indera Mahkota</h1>
+    <h2>COURSE</h2>
+    <form action="" method="post">
+        {% csrf_token %}
+        Course Code: <input type="text" name="code"><br><br>
+        Description: <input type="text" name="desc" style="width: 25%;"><br><br>
+        <input type="submit" value="SAVE"><br><br>
+    </form>
+    <br><br>
+    {{message}}
+    <table style="width: 50%; color: black;">
+        <tr>
+            <th>Code</th>
+            <th>Description</th>
+            <th>Update?</th>
+            <th>Delete?</th>
+        </tr>
+        {% for data in cordata %}
+        <tr>
+            <td>{{data.code}}</td>
+            <td>{{data.description}}</td>
+            <td><a href="update_course/{{data.code}}">Update</a></td>
+            <td><a href="delete_course/{{data.code}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2><a href="{% url 'dbstudent' %}">GO TO STUDENT DATABASE</a></h2>
+    <h2><a href="{% url 'index' %}">BACK TO HOMEPAGE</a></h2>
+</body>
+</html>

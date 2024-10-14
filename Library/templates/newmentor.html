@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentor</title>
+    <style>
+        table, th, td {
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body style="background-color: plum;">
+    <h1>MENTOR PAGE</h1>
+    <form action="" method="post">
+        {% csrf_token %}
+        <b><p>Enter Mentor ID:</p></b>
+        <input type="text" name="id">
+        <b><p>Enter Mentor Name:</p></b>
+        <input type="text" name="name">
+        <b><p>Enter Mentor Room Number:</p></b>
+        <input type="text" name="room"><br><br>
+        <input type="SUBMIT" value="SAVE"><br>
+    </form><br>
+    {{message}}
+    <table style="width: 50%; color: black;">
+        <tr>
+            <th>Mentor ID</th>
+            <th>Mentor Name</th>
+            <th>Mentor Room</th>
+            <th>Update?</th>
+            <th>Delete?</th>
+        </tr>
+        {% for data in mendata %}
+        <tr>
+            <td>{{data.menid}}</td>
+            <td>{{data.menname}}</td>
+            <td>{{data.menroomno}}</td>
+            <td><a href="update_mentor/{{data.menname}}">Update</a></td>
+            <td><a href="delete_mentor/{{data.menid}}">Delete</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2><a href="{% url 'index' %}">BACK TO HOMEPAGE</a></h2>
+</body>
+</html>

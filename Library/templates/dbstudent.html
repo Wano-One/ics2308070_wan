@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Database</title>
+    <style>
+        table, th, td {
+            text-align: center;
+            border:1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+    <h1>STUDENT DATABASE</h1>
+    <table style="width: 50%;">
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Student Phone</th>
+            <th>Student Email</th>
+            <th>Student Status</th>
+        </tr>
+        {% for x in mystudent %}
+        <tr>
+            <td>{{ x.student_id }}</td>
+            <td>{{ x.student_name }}</td>
+            <td>{{ x.student_phone }}</td>
+            <td>{{ x.student_email }}</td>
+            <td>{{ x.stud_status }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <h2><a href="{% url 'index' %}">BACK TO HOMEPAGE</a></h2>
+</body>
+</html>

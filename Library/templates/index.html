@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+</head>
+<body>
+    <h1>HOMEPAGE</h1>
+    {% with firstname="Wan" %}
+        <h1>Hello {{ firstname }} {{ lastname }}, How are you?</h1>
+    {% endwith %}
+    <h2><a href="{% url 'view' %}">DISPLAY USING VARIABLE FROM VIEWS (got to views.html)</a></h2>
+    <h2><a href="{% url 'dbstudent' %}">DISPLAY STUDENT CLASS (go to dbstudent.html)</a></h2>
+    <h2><a href="{% url 'dbbook' %}">DISPLAY BOOK CLASS (go to dbbook.html)</a></h2>
+    <h2><a href="{% url 'dbborrow' %}">DISPLAY BORROWING CLASS (go to dbborrow.html)</a></h2>
+    <h2><a href="{% url 'course' %}">GO TO COURSE PAGE</a></h2>
+    <h2><a href="{% url 'mentor' %}">GO TO MENTOR PAGE</a></h2>
+    <br>
+    {% if greeting == 1 %}
+        <h1>HELLO</h1>
+        Welcome to selection
+    {% endif %}
+</body>
+</html>
